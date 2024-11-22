@@ -1,0 +1,4 @@
+name: IServerCore
+version: '1.0-SNAPSHOT'
+main: cn.originmc.iServerCore.IServerCore
+api-version: '1.21'

@@ -1,6 +1,7 @@
 package cn.originmc.iServerCore;
 
 import cn.originmc.iServerCore.lang.LangLoader;
+import cn.originmc.iServerCore.task.TaskManager;
 import cn.originmc.iServerCore.utils.AttributeUtil;
 import cn.originmc.iServerCore.module.attribute.ServerAttributeEnum;
 import cn.originmc.iServerCore.module.attribute.entity.ServerAttribute;
@@ -14,6 +15,7 @@ public final class IServerCore extends JavaPlugin {
     public static JavaPlugin plugin;
     public static final Map<ServerAttributeEnum, ServerAttribute<?>> attributes = new ConcurrentHashMap<>();
     public static LangLoader lang;
+    public static TaskManager taskManager;
     @Override
     public void onEnable() {
         plugin=this;
@@ -28,6 +30,7 @@ public final class IServerCore extends JavaPlugin {
 
     public static void loadOrReload(){
         plugin.reloadConfig();
+        taskManager=new TaskManager();
         lang=new LangLoader();
         AttributeUtil.registerAttributes();
     }

@@ -5,6 +5,8 @@ import cn.originmc.iServerCore.IServerCore;
 import cn.originmc.iServerCore.module.attribute.ServerAttributeEnum;
 import cn.originmc.iServerCore.module.attribute.attributes.NearAttackPower;
 
+import java.util.Arrays;
+
 public class AttributeUtil {
     public static void registerAttributes() {
         new NearAttackPower();
@@ -24,5 +26,10 @@ public class AttributeUtil {
         } catch (ClassCastException e) {
             return defaultValue;
         }
+    }
+    public static String generateBattleIdentifier(String name1, String name2) {
+        String[] names = {name1, name2};
+        Arrays.sort(names);
+        return names[0] + "_" + names[1];
     }
 }
